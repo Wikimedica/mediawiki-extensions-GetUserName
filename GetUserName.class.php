@@ -29,7 +29,7 @@ class GetUserName
 	 * */
 	public static function magic( &$parser, $frame) 
 	{
-		$parser->disableCache();
+		$parser->getOutput()->updateCacheExpiry(0); // Disable cache.
 		global $wgUser;
 		return trim( $wgUser->getName() );
 	}
