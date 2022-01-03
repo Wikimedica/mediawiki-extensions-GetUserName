@@ -1,9 +1,10 @@
-{	"name": "GetUserName",
+{
+	"name": "GetUserName",
 	"version": "2.0",
 	"author": [
 		"[https://www.mediawiki.org/wiki/User:Tinss Antoine Mercier-Linteau]",
 		"[https://www.mediawiki.org/wiki/User:Ejcaputo Ejcaputo]"
-	 ],
+	],
 	"url": "https://www.mediawiki.org/wiki/Extension:GetUserName",
 	"descriptionmsg": "getusername-desc",
 	"license-name": "GPL-2.0-or-later",
@@ -12,7 +13,7 @@
 		"MediaWiki": ">= 1.34.0"
 	},
 	"AutoloadClasses": {
-		"MediaWiki\\Extension\\GetUserName\\GetUserName": "GetUserName.class.php"
+		"MediaWiki\\Extension\\GetUserName\\GetUserName": "src/GetUserName.php"
 	},
 	"Hooks": {
 		"ParserFirstCallInit": "MediaWiki\\Extension\\GetUserName\\GetUserName::onParserFirstCallInit"
