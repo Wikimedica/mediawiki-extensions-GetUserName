@@ -10,27 +10,24 @@
 
 namespace MediaWiki\Extension\GetUserName;
 
-/**
- * Extension class.
- * */
-class GetUserName 
-{
+class GetUserName {
 	/**
-	 * Hook.
-	 * */
-	public static function onParserFirstCallInit( &$parser ) 
-	{
+	 * @param Parser $parser
+	 */
+	public static function onParserFirstCallInit( $parser )	{
 		$parser->setFunctionHook('USERNAME', __CLASS__.'::magic' );
-		return true;
 	}
-	
+
 	/**
 	 * Magic word handling method.
-	 * */
-	public static function magic( &$parser, $frame) 
-	{
-		$parser->getOutput()->updateCacheExpiry(0); // Disable cache.
-		global $wgUser;
-		return trim( $wgUser->getName() );
+	 *
+	 * @param Parser &$parser
+	 * @param PPFrame $frame
+	 */
+	public static function magic( &$parser, $frame ) {
+		$user = RequestContext::getMain()->getUser();
+		// Disable cache
+		$parser->getOutput()->updateCacheExpiry(0);
+		return trim( $user->getName() );
 	}
 }
